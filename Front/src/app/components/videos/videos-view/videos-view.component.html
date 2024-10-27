@@ -1,2 +1,45 @@
-<p>videos-view </p>
+<div class="container mt-5">
+  <button class="btn btn-success w-100" [routerLink]="['/videoCreate']"> Create new video</button>
+  <div>
+    <label class="form-label">Pesquisar:</label>
+    <input class="form-control" type="text" placeholder="Qual servico deseja buscar?" (input)="($event)"/>
+  </div>
 
+<table class="table table-hoven table-borbered mt-5">
+  <thead class="table-dark">
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>genres</th>
+      <th>descripition</th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+<tbody>
+  @if (videos.length > 0) {
+    @for (video of videos; track $index) {
+
+      <tr>
+        <td>{{ video.idVideo }}</td>
+        <td>{{ video.name }}</td>
+        <td>{{ video.genres }}</td>
+        <td>{{ video.descripition }}</td>
+        <td>
+          <button class="btn btn-warning mx-2"[routerLink]="['/videosUpdate',video.idVideo]"> Editar</button>
+          <button class="btn btn-danger mx-2" (click)="(video.idVideo)"> Excluir</button>
+        </td>
+      </tr>
+
+
+    }
+  }@else {
+    <tr class="text-center">
+      <td colspan="7">Nenhum servico cadastrado!</td>
+    </tr>
+  }
+</tbody>
+</table>
+
+</div>
