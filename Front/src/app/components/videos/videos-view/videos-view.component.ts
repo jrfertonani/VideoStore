@@ -26,10 +26,17 @@ export class VideosViewComponent implements OnInit{
       this.videoList = videos;
       console.log(videos);
     })
-
-
   }
 
+  search(event: Event){
+    const target = event.target as HTMLInputElement;
+    const value = target.value.toLocaleLowerCase();
+
+    this.videos = this.videoList.filter(videos => {
+      return videos.name.toLocaleLowerCase().includes(value);
+    })
+
+  }
 
 
 }
