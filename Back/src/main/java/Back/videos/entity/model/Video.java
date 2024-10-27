@@ -21,14 +21,16 @@ public class Video implements Serializable {
 
     private String name;
     private Genres genres;
+    private String description;
 
     public Video() {
     }
 
-    public Video(Long idVideo, String name, Genres genres) {
+    public Video(Long idVideo, String name, Genres genres, String description) {
         this.idVideo = idVideo;
         this.name = name;
         this.genres = genres;
+        this.description = description;
     }
 
     public Long getIdVideo() {
@@ -53,6 +55,14 @@ public class Video implements Serializable {
 
     public void setGenres(Genres genres) {
         this.genres = genres;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

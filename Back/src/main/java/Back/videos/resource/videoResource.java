@@ -45,9 +45,24 @@ public class videoResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<videoDTO> finsById(@PathVariable Long id){
+    public ResponseEntity<videoDTO> findById(@PathVariable Long id){
         return ResponseEntity.ok().body(
                 mapper.map(service.findById(id), videoDTO.class)
         );
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<videoDTO> update(@PathVariable Long id,
+                                           @RequestBody videoDTO DTO){
+        DTO.setIdVideo(id);
+       Video obj = service.update(id, DTO);
+       return ResponseEntity.ok().body(DTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }

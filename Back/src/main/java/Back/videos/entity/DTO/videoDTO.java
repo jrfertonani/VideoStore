@@ -16,4 +16,5 @@ public class videoDTO {
     private Long idVideo;
     private String name;
     private Genres genres;
+    private String description;
 }

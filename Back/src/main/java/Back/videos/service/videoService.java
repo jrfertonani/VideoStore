@@ -41,4 +41,14 @@ public class videoService {
             ),Video.class);
     }
 
+    public Video update(Long id, videoDTO DTO) {
+        findById(id);
+        return repository.save(mapper.map(DTO, Video.class));
+    }
+
+    public void delete(Long id) {
+        findById(id);
+        repository.deleteById(id);
+
+    }
 }
