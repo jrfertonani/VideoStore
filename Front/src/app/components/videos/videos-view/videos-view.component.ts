@@ -21,6 +21,11 @@ export class VideosViewComponent implements OnInit{
 
 
   ngOnInit(): void {
+    this.viceosService.list().subscribe(videos => {
+      this.videos = videos;
+      this.videoList = videos;
+      console.log(videos);
+    })
 
 
   }
