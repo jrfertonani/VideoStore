@@ -39,4 +39,11 @@ export class VideosViewComponent implements OnInit{
   }
 
 
+  delete(id: number){
+    this.viceosService.delete(id).subscribe(videos => {
+      window.location.reload();
+    })
+  }
+
+
 }
