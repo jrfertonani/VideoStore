@@ -18,4 +18,9 @@ export class VideosService {
     return this.http.get<Videos[]>(this.URL)
   }
 
+
+  delete(id: number):Observable<Videos>{
+    return this.http.delete<Videos>(`${this.URL}/${id}`)
+  }
+
 }
