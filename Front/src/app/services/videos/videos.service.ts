@@ -13,9 +13,16 @@ export class VideosService {
   constructor(private http: HttpClient) {}
 
 
+  create(video: Videos):Observable<Videos>{
+    return this.http.post<Videos>(this.URL,video)
+  }
 
   list():Observable<Videos[]>{
     return this.http.get<Videos[]>(this.URL)
+  }
+
+  findById(id: number):Observable<Videos>{
+    return this.http.get<Videos>(`${this.URL}/${id}`)
   }
 
 
