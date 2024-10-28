@@ -1,1 +1,26 @@
-<p>videos-form works!</p>
+<div class="container mt-5">
+  <h1> {{ descTitulo }}</h1>
+  <form [formGroup]="videoForm" (ngSubmit)="submit()" #formDir="ngForm">
+
+    <div class="mt-03">
+      <label class="fom-label">Name</label>
+      <input type="text" placeholder="Inset name" class="form-control" formControlName="name" />
+    </div>
+
+    <div class="mt-03">
+      <label class="fom-label">Genres</label>
+      <input type="text" placeholder="Insert genres" class="form-control" formControlName="genres" />
+    </div>
+
+    <div class="mt-03">
+      <label class="fom-label">Description</label>
+      <input type="text" placeholder="Insert description" class="form-control" formControlName="description" />
+    </div>
+
+    <div class="d-flex mt-3">
+      <button class="btn btn-success w-50 mx-1" type="submit">{{ btnAcao }}</button>
+      <a class="btn btn-info w-50" [routerLink]="['/videos']">Voltar</a>
+    </div>
+
+  </form>
+</div>
