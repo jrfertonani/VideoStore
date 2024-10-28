@@ -1,9 +1,6 @@
 package Back.videos.entity.DTO;
 
 import Back._config.Enums.Genres;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.io.Serial;
