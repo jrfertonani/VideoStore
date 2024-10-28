@@ -15,6 +15,7 @@ export class VideosFormComponent implements OnInit{
 
   @Output() onSubmit = new EventEmitter<Videos>();
 
+  @Input()  dadosVideo : Videos | null = null;
 
 
   @Input() btnAcao!: string;
@@ -28,11 +29,14 @@ export class VideosFormComponent implements OnInit{
 
 
   ngOnInit(): void {
+
+    console.log(3)
+
     this.videoForm = new FormGroup({
-      idVideos: new FormControl(0),
-      name: new FormControl(''),
-      genres: new FormControl(''),
-      description: new FormControl('')
+      idVideo: new FormControl(this.dadosVideo ? this.dadosVideo.idVideo : 0),
+      name: new FormControl(this.dadosVideo ? this.dadosVideo.name : ''),
+      genres: new FormControl(this.dadosVideo ? this.dadosVideo.genres : ''),
+      description: new FormControl(this.dadosVideo ? this.dadosVideo.description : '')
     });
 
   }
@@ -42,6 +46,8 @@ export class VideosFormComponent implements OnInit{
 
   submit(){
       this.onSubmit.emit(this.videoForm.value);
+
+    //  console.log(this.videoForm.value);
   }
 
 
