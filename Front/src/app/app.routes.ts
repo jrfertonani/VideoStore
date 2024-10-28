@@ -11,7 +11,7 @@ export const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'videos',component: VideosViewComponent},
   {path: 'videoCreate', component: VideosCreateComponent},
-  {path: 'videosUpdate', component: VideosUpdateComponent},
+  {path: 'videosUpdate/:id', component: VideosUpdateComponent},
 
 
 ];
