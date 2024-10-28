@@ -51,10 +51,10 @@ public class videoResource {
         );
     }
     @PutMapping("/{id}")
-    public ResponseEntity<videoDTO> update(@PathVariable Long id,
+    public ResponseEntity<videoDTO> update(@PathVariable Long idVideo,
                                            @RequestBody videoDTO DTO){
-        DTO.setIdVideo(id);
-       Video obj = service.update(id, DTO);
+        DTO.setIdVideo(idVideo);
+       Video obj = service.update(idVideo, DTO);
        return ResponseEntity.ok().body(DTO);
     }
 
