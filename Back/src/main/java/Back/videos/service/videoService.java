@@ -41,8 +41,8 @@ public class videoService {
             ),Video.class);
     }
 
-    public Video update(Long id, videoDTO DTO) {
-        findById(id);
+    public Video update(Long idVideo, videoDTO DTO) {
+        findById(idVideo);
         return repository.save(mapper.map(DTO, Video.class));
     }
 

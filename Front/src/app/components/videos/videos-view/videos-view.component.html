@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <button class="btn btn-success w-100" [routerLink]="['/videoCreate']"> Create new video</button>
+  <div>
+    <label class="form-label">Pesquisar:</label>
+    <input class="form-control" type="text" placeholder="Qual servico deseja buscar?" (input)="search($event)"/>
+  </div>
+</div>
+
+<br>
+
+<div class= "row row-cols-1 row-cols-md-3 g-4">
+
+
+@if (videos.length > 0) {
+  @for (video of videos; track $index) {
+
+
+    <div class="card " style="width: 18rem;">
+      <img src="/assets/images/download.png" class="card-img-top" alt="Logo">
+      <div class="card-body">
+        <h5 class="card-title">{{ video.name }}</h5>
+        <p class="card-text"> {{ video.genres }} </p>
+        <textarea name="textarea" rows="5" cols="30" minlength="10" maxlength="50" readonly>
+          {{ video.description }}</textarea>
+
+
+        <button class="btn btn-warning mx-2"[routerLink]="['/videosUpdate',video.idVideo]"> Editar</button>
+        <button  class="btn btn-danger mx-2"(click)="delete(video.idVideo)"> Excluir</button>
+      </div>
+    </div>
+
+
+
+
+
+  }
+}@else {
+  <tr class="text-center">
+    <td colspan="7">Nenhum servico cadastrado!</td>
+  </tr>
+}
+</div>
