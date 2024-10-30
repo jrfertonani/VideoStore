@@ -20,16 +20,18 @@ export class VideosUpdateComponent implements OnInit{
   video!: Videos;
 
 
-  constructor(private serviceVideo: VideosService, private router: Router, private route: ActivatedRoute){}
+  constructor(private serviceVideo: VideosService, private route: ActivatedRoute, private router: Router){}
 
 
   ngOnInit(): void {
 console.log(1)
-    const id = Number(this.route.snapshot.paramMap.get('id'))
+    const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.serviceVideo.findById(id).subscribe(video => {
-      console.log(2)
+    this.serviceVideo.findById(id).subscribe((video) => {
+
       this.video = video;
+
+      console.log(2)
     })
   }
 
@@ -38,10 +40,11 @@ console.log(1)
     console.log(video)
     this.serviceVideo.update(video).subscribe((video) => {
 
-      this.router.navigate(['/videos'])
-    })
+      this.router.navigate(['/videos']);
+    });
 
     console.log(video)
   }
+
 
 }
