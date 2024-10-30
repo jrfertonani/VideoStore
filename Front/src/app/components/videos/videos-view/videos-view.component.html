@@ -4,42 +4,39 @@
     <label class="form-label">Pesquisar:</label>
     <input class="form-control" type="text" placeholder="Qual servico deseja buscar?" (input)="search($event)"/>
   </div>
+</div>
 
-<table class="table table-hoven table-borbered mt-5">
-  <thead class="table-dark">
-    <tr>
-      <th>id</th>
-      <th>Name</th>
-      <th>genres</th>
-      <th>descripition</th>
-      <th></th>
-    </tr>
-  </thead>
+<br>
+
+<div class= "row row-cols-1 row-cols-md-3 g-4">
 
 
-<tbody>
-  @if (videos.length > 0) {
-    @for (video of videos; track $index) {
-
-      <tr>
-        <td>{{ video.idVideo }}</td>
-        <td>{{ video.name }}</td>
-        <td>{{ video.genres }}</td>
-        <td>{{ video.description }}</td>
-        <td>
-          <button class="btn btn-warning mx-2"[routerLink]="['/videosUpdate',video.idVideo]"> Editar</button>
-          <button class="btn btn-danger mx-2" (click)="delete(video.idVideo)"> Excluir</button>
-        </td>
-      </tr>
+@if (videos.length > 0) {
+  @for (video of videos; track $index) {
 
 
-    }
-  }@else {
-    <tr class="text-center">
-      <td colspan="7">Nenhum servico cadastrado!</td>
-    </tr>
+    <div class="card " style="width: 18rem;">
+      <img src="/assets/images/download.png" class="card-img-top" alt="Logo">
+      <div class="card-body">
+        <h5 class="card-title">{{ video.name }}</h5>
+        <p class="card-text"> {{ video.genres }} </p>
+        <textarea name="textarea" rows="5" cols="30" minlength="10" maxlength="50" readonly>
+          {{ video.description }}</textarea>
+
+
+        <button class="btn btn-warning mx-2"[routerLink]="['/videosUpdate',video.idVideo]"> Editar</button>
+        <button  class="btn btn-danger mx-2"(click)="delete(video.idVideo)"> Excluir</button>
+      </div>
+    </div>
+
+
+
+
+
   }
-</tbody>
-</table>
-
+}@else {
+  <tr class="text-center">
+    <td colspan="7">Nenhum servico cadastrado!</td>
+  </tr>
+}
 </div>
