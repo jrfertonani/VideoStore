@@ -23,7 +23,7 @@ export class VideosCreateComponent {
     this.servicoVideo.create(video).subscribe(videos => {
       this.router.navigate(['/videos'])
 
-      console.log(video)
+      //console.log(video)
     })
   }
 
