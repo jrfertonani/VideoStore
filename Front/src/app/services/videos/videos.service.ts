@@ -26,11 +26,11 @@ export class VideosService {
   }
 
   update(video: Videos):Observable<Videos>{
-    const url = `${this.URL}/${video.idVideo}`
+    const url = `${this.URL}/${video.idVideo}`;
     return this.http.put<Videos>(url,video);
   }
 
-  delete(id: number):Observable<Videos>{
+  delete(id: number | undefined):Observable<Videos>{
     return this.http.delete<Videos>(`${this.URL}/${id}`)
   }
 
