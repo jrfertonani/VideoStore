@@ -36,7 +36,7 @@ export class VideosFormComponent implements OnInit{
       idVideo: new FormControl(this.dadosVideo ? this.dadosVideo.idVideo : 0),
       name: new FormControl(this.dadosVideo ? this.dadosVideo.name : ''),
       genres: new FormControl(this.dadosVideo ? this.dadosVideo.genres : ''),
-      description: new FormControl(this.dadosVideo ? this.dadosVideo.description : '')
+      description: new FormControl(this.dadosVideo ? this.dadosVideo.description : ''),
     });
 
   }
