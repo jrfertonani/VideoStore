@@ -7,10 +7,19 @@
       <input type="text" placeholder="Inset name" class="form-control" formControlName="name" />
     </div>
 
-    <div class="mt-03">
-      <label class="fom-label">Genres</label>
-      <input type="text" placeholder="Insert genres" class="form-control" formControlName="genres" />
+    <!-- campo estático funcionando -->
+    <div class="input-field col s4" >
+      <label class="fom-label" >Genre</label>
+      <select class="form-control" formControlName="genres" >
+        <option value="" disabled selected>Choose the genre : </option>
+       <!-- <option [ngValue]="" disabled selected>Choose the genre:</option> -->
+        <option [ngValue]="0">ACTION</option>
+        <option [ngValue]="1">COMEDY</option>
+        <option [ngValue]="2">ADVENTURE</option>
+      </select>
     </div>
+
+
 
     <div class="mt-03">
       <label class="fom-label">Description</label>
