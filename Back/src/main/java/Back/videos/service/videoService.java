@@ -1,5 +1,6 @@
 package Back.videos.service;
 
+import Back._config.Enums.Genres;
 import Back._config.Exeptions.serviceExceptions.ObjectNotFoundException;
 import Back.videos.entity.DTO.videoDTO;
 import Back.videos.entity.model.Video;
@@ -34,10 +35,10 @@ public class videoService {
     }
 
 
-    public Video findById(Long id) {
+    public Video findById(Long idVideo) {
         return mapper.map(
-            repository.findById(id).orElseThrow(
-              () -> new ObjectNotFoundException( "Video not found. ID: " + id)
+            repository.findById(idVideo).orElseThrow(
+              () -> new ObjectNotFoundException( "Video not found. ID: " + idVideo)
             ),Video.class);
     }
 
@@ -51,4 +52,15 @@ public class videoService {
         repository.deleteById(id);
 
     }
+
+
+
+    public List<Video> findByName(String name){
+        return this.repository.findByName(name);
+    }
+
+    public List<Video> findByGenres(Genres genres){
+        return this.repository.findByGenres(genres);
+    }
+
 }
