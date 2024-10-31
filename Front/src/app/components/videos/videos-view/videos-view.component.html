@@ -1,8 +1,15 @@
 <div class="container mt-5">
   <button class="btn btn-success w-100" [routerLink]="['/videoCreate']"> Create new video</button>
   <div>
-    <label class="form-label">Pesquisar:</label>
-    <input class="form-control" type="text" placeholder="Qual servico deseja buscar?" (input)="search($event)"/>
+    <label class="form-label">Look for name:</label>
+    <input class="form-control" type="text" placeholder="Which video do you want to search?" (input)="searchName($event)"/>
+  </div>
+</div>
+
+<div class="container mt-2">
+  <div>
+    <label class="form-label">Look for genre :</label>
+    <input class="form-control" type="text" placeholder="What genre do you want to research?" (input)="search($event)"/>
   </div>
 </div>
 
@@ -10,13 +17,12 @@
 
 <div class= "row row-cols-1 row-cols-md-3 g-4">
 
-
 @if (videos.length > 0) {
   @for (video of videos; track $index) {
 
 
     <div class="card " style="width: 18rem;">
-      <img src="/assets/images/download.png" class="card-img-top" alt="Logo">
+      <!-- <img src="/assets/images/download.png" class="card-img-top" alt="Logo">   -->
       <div class="card-body">
         <h5 class="card-title">{{ video.name }}</h5>
         <p class="card-text"> {{ video.genres }} </p>

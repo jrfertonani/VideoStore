@@ -28,7 +28,9 @@ export class VideosViewComponent implements OnInit{
     })
   }
 
-  search(event: Event){
+
+
+  searchName(event: Event){
     const target = event.target as HTMLInputElement;
     const value = target.value.toLocaleLowerCase();
 
@@ -38,6 +40,17 @@ export class VideosViewComponent implements OnInit{
 
   }
 
+
+
+search(event: Event){
+  const target = event.target as HTMLInputElement;
+  const value = target.value.toLocaleLowerCase();
+
+  this.videos = this.videoList.filter(videos => {
+    return videos.genres.toLocaleLowerCase().includes(value);
+  })
+
+}
 
   delete(id: number){
     this.viceosService.delete(id).subscribe(videos => {
