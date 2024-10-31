@@ -1,5 +1,6 @@
 package Back.videos.resource;
 
+import Back._config.Enums.Genres;
 import Back.videos.entity.DTO.videoDTO;
 import Back.videos.entity.model.Video;
 import Back.videos.service.videoService;
@@ -64,5 +65,23 @@ public class videoResource {
         return ResponseEntity.noContent().build();
     }
 
+
+    @GetMapping("findByName")
+    public ResponseEntity<List<Video>> findByName(@RequestParam String name){
+        return ResponseEntity.ok().body(
+                service.findByName(name)
+                        .stream().map(x -> mapper.map(x, Video.class))
+                        .toList()
+        );
+    }
+
+    @GetMapping("findByGenres")
+    public ResponseEntity<List<Video>> findByGenres(@RequestParam Genres genres){
+        return ResponseEntity.ok().body(
+                service.findByGenres(genres)
+                        .stream().map(x -> mapper.map(x, Video.class))
+                        .toList()
+        );
+    }
 
 }
